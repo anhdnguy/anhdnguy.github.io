@@ -1,0 +1,40 @@
+/* === Hard Dark Theme Override === */
+
+body {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+a {
+  color: #80cbc4 !important;
+}
+
+a:hover {
+  color: #4db6ac !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+.site-header,
+.site-footer,
+.sidebar {
+  background-color: #1e1e1e !important;
+}
+
+pre, code {
+  background-color: #272727 !important;
+  color: #f8f8f2 !important;
+}
+
+.site-nav,
+.page__footer,
+.page__content,
+.page__hero {
+  background-color: #1e1e1e !important;
+}
+
+.page__content p {
+  color: #e0e0e0 !important;
+}
