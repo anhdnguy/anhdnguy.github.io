@@ -1,40 +1,126 @@
-/* === Hard Dark Theme Override === */
+/* === Dracula-inspired Dark Theme === */
 
+/* Dracula base colors */
+:root {
+  --dracula-background: #282a36;
+  --dracula-current-line: #44475a;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+}
+
+/* Body */
 body {
-  background-color: #121212 !important;
-  color: #e0e0e0 !important;
+  background-color: var(--dracula-background) !important;
+  color: var(--dracula-foreground) !important;
 }
 
-a {
-  color: #80cbc4 !important;
+/* Content area */
+.page,
+.page__content {
+  background-color: var(--dracula-background) !important;
+  color: var(--dracula-foreground) !important;
 }
 
-a:hover {
-  color: #4db6ac !important;
-}
-
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
+  color: var(--dracula-foreground) !important;
 }
 
+/* Links */
+a {
+  color: var(--dracula-pink) !important;
+}
+
+a:hover,
+a:focus {
+  color: var(--dracula-purple) !important;
+}
+
+/* Navbar, header, footer, sidebar */
 .site-header,
-.site-footer,
-.sidebar {
-  background-color: #1e1e1e !important;
-}
-
-pre, code {
-  background-color: #272727 !important;
-  color: #f8f8f2 !important;
-}
-
 .site-nav,
+.site-footer,
 .page__footer,
-.page__content,
-.page__hero {
-  background-color: #1e1e1e !important;
+.sidebar {
+  background-color: var(--dracula-current-line) !important;
+  color: var(--dracula-foreground) !important;
 }
 
-.page__content p {
-  color: #e0e0e0 !important;
+.sidebar a,
+.site-footer a {
+  color: var(--dracula-pink) !important;
+}
+
+.sidebar a:hover,
+.site-footer a:hover {
+  color: var(--dracula-purple) !important;
+}
+
+/* Code blocks */
+pre,
+code,
+.highlight {
+  background-color: #44475a !important;
+  color: var(--dracula-foreground) !important;
+}
+
+/* Buttons and inputs */
+button,
+.btn,
+input[type="submit"],
+input,
+textarea {
+  background-color: var(--dracula-current-line) !important;
+  color: var(--dracula-foreground) !important;
+  border: 1px solid var(--dracula-comment) !important;
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover {
+  background-color: #6272a4 !important;
+}
+
+/* Tables */
+table {
+  background-color: var(--dracula-current-line) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+thead {
+  background-color: #44475a !important;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #383a59 !important;
+}
+
+/* Blockquotes */
+blockquote {
+  background-color: #383a59 !important;
+  border-left: 4px solid var(--dracula-purple) !important;
+  color: var(--dracula-comment) !important;
+}
+
+/* HR */
+hr {
+  border-color: var(--dracula-comment) !important;
+}
+
+/* Misc hero overlays if needed */
+.page__hero--overlay {
+  background-color: rgba(40, 42, 54, 0.85) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+/* Images slightly dim to blend with dark bg */
+img {
+  opacity: 0.97;
 }
