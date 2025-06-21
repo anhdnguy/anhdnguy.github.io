@@ -50,9 +50,6 @@ staticman:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
-# Minimal Mistakes settings
-skin: "dark"
-
 # SEO Related
 google_site_verification :
 bing_site_verification   :
