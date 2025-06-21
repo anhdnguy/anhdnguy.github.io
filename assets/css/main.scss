@@ -39,3 +39,38 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* === Custom Dark Theme === */
+
+/* Force dark background and light text */
+body {
+  background-color: #121212; /* dark background */
+  color: #e0e0e0;            /* light text */
+}
+
+a {
+  color: #80cbc4;            /* links */
+}
+
+a:hover {
+  color: #4db6ac;            /* link hover */
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+/* Navbar, footer, sidebar if needed */
+.site-header,
+.site-footer,
+.sidebar {
+  background-color: #1e1e1e;
+}
+
+/* Code blocks */
+pre,
+code {
+  background-color: #272727;
+  color: #f8f8f2;
+}
