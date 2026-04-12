@@ -7,111 +7,31 @@ author_profile: true
 
 {% include base_path %}
 
+{% assign active = site.projects | where: "status", "active" | sort: "order" %}
+{% assign planned = site.projects | where: "status", "planned" | sort: "order" %}
+
 <p class="section-label">Current Projects</p>
 
 <p style="font-size:0.9em; color:var(--df-text-muted); margin-bottom:1.5rem;">
-  Quantitative finance and data science projects. Source code on
-  <a href="https://github.com/anhdnguye" target="_blank">GitHub</a>.
+  Source code on <a href="https://github.com/anhdnguye" target="_blank">GitHub</a>.
 </p>
 
+{% for project in active %}
 <div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/options-pricing-engine" target="_blank">Options Pricing Engine</a></h3>
-  <p>
-    Options pricing library implementing Black-Scholes, Binomial Trees, and Monte Carlo simulation
-    for European and American options. Includes Greeks (Delta, Gamma, Vega, Theta, Rho) computation
-    and an implied volatility solver via Brent's method.
-  </p>
+  <h3>
+    {% if project.github %}
+      <a href="{{ project.github }}" target="_blank">{{ project.title }}</a>
+    {% else %}
+      {{ project.title }}
+    {% endif %}
+  </h3>
+  <p>{{ project.content | strip_html | strip }}</p>
   <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Derivatives</span>
-    <span class="project-tag">Monte Carlo</span>
-    <span class="project-tag">Black-Scholes</span>
-    <span class="project-tag">Greeks</span>
+    {% for lang in project.languages %}<span class="project-lang">{{ lang }}</span>{% endfor %}
+    {% for tag in project.tags %}<span class="project-tag">{{ tag }}</span>{% endfor %}
   </div>
 </div>
-
-<div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/portfolio-optimizer" target="_blank">Portfolio Optimizer</a></h3>
-  <p>
-    Mean-variance portfolio optimization with Markowitz efficient frontier, Black-Litterman model,
-    and risk parity allocation. Backtesting framework with transaction cost modeling, drawdown analysis,
-    and Sharpe/Sortino ratio reporting.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Portfolio Theory</span>
-    <span class="project-tag">Optimization</span>
-    <span class="project-tag">Backtesting</span>
-    <span class="project-tag">Risk</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/stochastic-vol-models" target="_blank">Stochastic Volatility Models</a></h3>
-  <p>
-    Calibration and simulation of Heston, SABR, and rough Bergomi stochastic volatility models.
-    Finite difference PDE solver for option pricing under local vol surface, with volatility
-    surface visualization tools.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-lang">C++</span>
-    <span class="project-tag">Stochastic Vol</span>
-    <span class="project-tag">Heston</span>
-    <span class="project-tag">PDE</span>
-    <span class="project-tag">Calibration</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/factor-model-research" target="_blank">Equity Factor Model Research</a></h3>
-  <p>
-    Multi-factor equity model inspired by Fama-French. Implements momentum, quality, value, and
-    low-volatility factors with PCA-based factor extraction, Ledoit-Wolf covariance shrinkage,
-    and walk-forward cross-validation.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-lang">R</span>
-    <span class="project-tag">Factor Models</span>
-    <span class="project-tag">PCA</span>
-    <span class="project-tag">Equity</span>
-    <span class="project-tag">Alpha Research</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/ml-regime-detection" target="_blank">ML-Based Regime Detection</a></h3>
-  <p>
-    Hidden Markov Model and change-point detection for identifying bull/bear market regimes.
-    Ensemble of Gaussian HMM, CUSUM, and LSTM-based classifier, evaluated on S&amp;P 500 and VIX
-    time series.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Machine Learning</span>
-    <span class="project-tag">HMM</span>
-    <span class="project-tag">LSTM</span>
-    <span class="project-tag">Time Series</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3><a href="https://github.com/anhdnguye/spatial-transcriptomics-workflow" target="_blank">Spatial Transcriptomics Workflow</a></h3>
-  <p>
-    Graduate thesis research pipeline identifying immune-function signatures in vaping-associated
-    pulmonary injury using spatial gene expression data. Bayesian inference, clustering, and
-    tissue-level expression visualization.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">R</span>
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Bioinformatics</span>
-    <span class="project-tag">Bayesian</span>
-    <span class="project-tag">Clustering</span>
-    <span class="project-tag">Research</span>
-  </div>
-</div>
+{% endfor %}
 
 <hr>
 
@@ -121,67 +41,14 @@ author_profile: true
   Projects currently in research or early development.
 </p>
 
+{% for project in planned %}
 <div class="project-card">
-  <h3>Reinforcement Learning for Portfolio Management</h3>
-  <p>
-    Deep RL agent (PPO/SAC) trained to manage a multi-asset portfolio under realistic market
-    microstructure constraints — including transaction costs, slippage, and position limits.
-    Benchmarked against equal-weight and momentum baselines.
-  </p>
+  <h3>{{ project.title }}</h3>
+  <p>{{ project.content | strip_html | strip }}</p>
   <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Reinforcement Learning</span>
-    <span class="project-tag">Portfolio</span>
-    <span class="project-tag">PPO</span>
-    <span class="project-status-planned">In Progress</span>
+    {% for lang in project.languages %}<span class="project-lang">{{ lang }}</span>{% endfor %}
+    {% for tag in project.tags %}<span class="project-tag">{{ tag }}</span>{% endfor %}
+    <span class="project-status-planned">{{ project.stage | default: "Planned" }}</span>
   </div>
 </div>
-
-<div class="project-card">
-  <h3>CUDA Monte Carlo Simulator</h3>
-  <p>
-    GPU-accelerated Monte Carlo engine for pricing exotic derivatives and running large-scale
-    scenario analysis. Uses CUDA parallel random number generation (cuRAND) with variance
-    reduction techniques: antithetic variates, control variates, quasi-Monte Carlo.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">C++</span>
-    <span class="project-lang">CUDA</span>
-    <span class="project-tag">GPU</span>
-    <span class="project-tag">Monte Carlo</span>
-    <span class="project-tag">Exotic Options</span>
-    <span class="project-status-planned">Planned</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3>Yield Curve Modeling &amp; Fixed Income Analytics</h3>
-  <p>
-    Nelson-Siegel-Svensson yield curve fitting, bootstrapping from market instruments, and
-    duration/convexity analytics. Includes short-rate model simulation (Vasicek, Hull-White)
-    for interest rate derivatives pricing.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Fixed Income</span>
-    <span class="project-tag">Yield Curve</span>
-    <span class="project-tag">Interest Rates</span>
-    <span class="project-status-planned">Planned</span>
-  </div>
-</div>
-
-<div class="project-card">
-  <h3>Statistical Arbitrage Backtester</h3>
-  <p>
-    Event-driven backtesting framework for pairs trading and cointegration-based stat-arb strategies.
-    Engle-Granger and Johansen cointegration tests, Kalman filter for dynamic hedge ratio estimation,
-    and realistic execution modeling.
-  </p>
-  <div class="project-meta">
-    <span class="project-lang">Python</span>
-    <span class="project-tag">Stat Arb</span>
-    <span class="project-tag">Cointegration</span>
-    <span class="project-tag">Kalman Filter</span>
-    <span class="project-status-planned">Planned</span>
-  </div>
-</div>
+{% endfor %}
