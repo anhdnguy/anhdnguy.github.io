@@ -3,11 +3,11 @@ main:
   - title: "Projects"
     url: /projects/
 
-  - title: "Teaching"
-    url: /teaching/
+  - title: "Notes"
+    url: /notes/
 
-  - title: "Tutorial"
-    url: /tutorial/
+  - title: "Skills"
+    url: /skills/
 
   - title: "Resume"
     url: /files/AN_Resume_23.pdf
