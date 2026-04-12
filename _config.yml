@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Anh Nguyen"
 title_separator          : "-"
 name                     : &name "Anh Nguyen"
-description              : &description "My Portfolio"
+description              : &description "Quantitative Finance Developer | Applied Mathematics | ML"
 url                      : https://anhdnguye.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "anhdnguye/anhdnguye.github.io"
@@ -83,7 +83,7 @@ analytics:
 author:
   name             : "Anh Nguyen"
   avatar           : "headshot.jpeg"
-  bio              : "An Applied Mathematics major who enjoys taking Computer Science classes."
+  bio              : "Quantitative Finance Developer. M.S. Applied Mathematics (SDSU). Python · C++ · ML · Stochastic Modeling."
   location         : "San Diego, CA"
   employer         :
   pubmed           : 

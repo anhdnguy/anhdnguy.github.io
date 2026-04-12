@@ -1,126 +1,557 @@
-/* === Dracula-inspired Dark Theme === */
+/* ==========================================================================
+   QuantTerminal Dark Theme
+   Inspired by Bloomberg Terminal, quant trading platforms, and dark IDEs.
+   ========================================================================== */
 
-/* Dracula base colors */
+/* ── Color tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --dracula-background: #282a36;
-  --dracula-current-line: #44475a;
-  --dracula-foreground: #f8f8f2;
-  --dracula-comment: #6272a4;
-  --dracula-cyan: #8be9fd;
-  --dracula-green: #50fa7b;
-  --dracula-orange: #ffb86c;
-  --dracula-pink: #ff79c6;
-  --dracula-purple: #bd93f9;
-  --dracula-red: #ff5555;
-  --dracula-yellow: #f1fa8c;
+  --qt-bg:          #0a0e1a;   /* deep space navy — main background          */
+  --qt-surface:     #0f1624;   /* panel / sidebar background                 */
+  --qt-card:        #1a2234;   /* cards, code blocks, table rows             */
+  --qt-border:      #1e2d40;   /* dividers, input borders                    */
+  --qt-border-soft: #263350;   /* softer borders for nested elements         */
+
+  --qt-text:        #cdd6f4;   /* primary text — soft off-white              */
+  --qt-text-muted:  #6c7a8f;   /* secondary / meta text                      */
+  --qt-text-dim:    #4a5568;   /* very dim — disabled, placeholder           */
+
+  --qt-teal:        #00d4aa;   /* Bloomberg green — primary accent           */
+  --qt-teal-dark:   #009d7f;   /* hover / pressed teal                       */
+  --qt-blue:        #4fc3f7;   /* links, info                                */
+  --qt-blue-dark:   #0288d1;   /* link hover                                 */
+  --qt-gold:        #ffd54f;   /* headings highlight, h2/h3 accents          */
+  --qt-red:         #ff5370;   /* negative values, errors                    */
+  --qt-orange:      #ffb86c;   /* warnings, secondary highlight              */
+  --qt-green:       #3fb950;   /* positive values, success                   */
+
+  --qt-code-bg:     #111827;   /* syntax highlight background                */
+  --qt-shadow:      0 2px 12px rgba(0, 212, 170, 0.08);
 }
 
-/* Body */
-body {
-  background-color: var(--dracula-background) !important;
-  color: var(--dracula-foreground) !important;
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+html, body {
+  background-color: var(--qt-bg) !important;
+  color: var(--qt-text) !important;
 }
 
-/* Content area */
+/* ── Layout containers ────────────────────────────────────────────────────── */
 .page,
-.page__content {
-  background-color: var(--dracula-background) !important;
-  color: var(--dracula-foreground) !important;
+.page__content,
+.page__inner-wrap,
+#main,
+.archive {
+  background-color: var(--qt-bg) !important;
+  color: var(--qt-text) !important;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--dracula-foreground) !important;
+/* ── Typography ───────────────────────────────────────────────────────────── */
+h1 {
+  color: var(--qt-teal) !important;
+  letter-spacing: -0.02em;
 }
 
-/* Links */
+h2 {
+  color: var(--qt-gold) !important;
+  border-bottom: 1px solid var(--qt-border) !important;
+  padding-bottom: 0.3em;
+}
+
+h3, h4 {
+  color: var(--qt-text) !important;
+}
+
+h5, h6 {
+  color: var(--qt-text-muted) !important;
+}
+
+p, li, td, th {
+  color: var(--qt-text) !important;
+}
+
+strong, b {
+  color: var(--qt-gold) !important;
+}
+
+em, i {
+  color: var(--qt-orange) !important;
+}
+
+/* ── Links ────────────────────────────────────────────────────────────────── */
 a {
-  color: var(--dracula-pink) !important;
+  color: var(--qt-blue) !important;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover,
 a:focus {
-  color: var(--dracula-purple) !important;
+  color: var(--qt-teal) !important;
+  text-decoration: underline;
 }
 
-/* Navbar, header, footer, sidebar */
+a:visited {
+  color: var(--qt-blue) !important;
+}
+
+/* ── Masthead / Navigation ────────────────────────────────────────────────── */
+.masthead,
 .site-header,
 .site-nav,
-.site-footer,
+.greedy-nav {
+  background-color: var(--qt-surface) !important;
+  border-bottom: 1px solid var(--qt-border) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.masthead__inner-wrap {
+  background-color: var(--qt-surface) !important;
+}
+
+.greedy-nav a,
+.masthead__menu-item a {
+  color: var(--qt-text-muted) !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+}
+
+.greedy-nav a:hover,
+.masthead__menu-item a:hover {
+  color: var(--qt-teal) !important;
+  text-decoration: none !important;
+}
+
+/* Site title in nav */
+.masthead__menu-item--lg a {
+  color: var(--qt-teal) !important;
+  font-weight: 700 !important;
+  font-size: 1em !important;
+  letter-spacing: 0.05em;
+  text-transform: none !important;
+}
+
+.masthead__menu-item--lg a:hover {
+  color: var(--qt-gold) !important;
+}
+
+/* Hamburger icon */
+.greedy-nav button {
+  background-color: transparent !important;
+  border: 1px solid var(--qt-border) !important;
+}
+
+.navicon,
+.navicon::before,
+.navicon::after {
+  background: var(--qt-teal) !important;
+}
+
+/* Hidden links dropdown */
+.hidden-links {
+  background-color: var(--qt-surface) !important;
+  border: 1px solid var(--qt-border) !important;
+  box-shadow: var(--qt-shadow) !important;
+}
+
+.hidden-links a {
+  color: var(--qt-text-muted) !important;
+}
+
+.hidden-links a:hover {
+  color: var(--qt-teal) !important;
+  background-color: var(--qt-card) !important;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+.sidebar,
+.author__content,
+.author__urls-wrapper {
+  background-color: var(--qt-surface) !important;
+  color: var(--qt-text) !important;
+}
+
+.author__name {
+  color: var(--qt-teal) !important;
+  font-weight: 700;
+}
+
+.author__bio {
+  color: var(--qt-text-muted) !important;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.author__urls {
+  background-color: var(--qt-surface) !important;
+  border: 1px solid var(--qt-border) !important;
+}
+
+.author__urls li a {
+  color: var(--qt-text-muted) !important;
+}
+
+.author__urls li a:hover {
+  color: var(--qt-teal) !important;
+}
+
+.author__urls li i,
+.author__urls li .fa,
+.author__urls li .fab,
+.author__urls li .fas {
+  color: var(--qt-teal) !important;
+}
+
+/* Follow button */
+.btn--inverse {
+  background-color: transparent !important;
+  border: 1px solid var(--qt-teal) !important;
+  color: var(--qt-teal) !important;
+  font-size: 0.7em !important;
+  letter-spacing: 0.05em;
+}
+
+.btn--inverse:hover {
+  background-color: var(--qt-teal) !important;
+  color: var(--qt-bg) !important;
+}
+
+/* ── Page title ───────────────────────────────────────────────────────────── */
+.page__title {
+  color: var(--qt-teal) !important;
+}
+
+.page__meta,
+.page__date {
+  color: var(--qt-text-muted) !important;
+  font-size: 0.8em;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
 .page__footer,
-.sidebar {
-  background-color: var(--dracula-current-line) !important;
-  color: var(--dracula-foreground) !important;
+.site-footer,
+footer {
+  background-color: var(--qt-surface) !important;
+  border-top: 1px solid var(--qt-border) !important;
+  color: var(--qt-text-muted) !important;
 }
 
-.sidebar a,
+.page__footer a,
 .site-footer a {
-  color: var(--dracula-pink) !important;
+  color: var(--qt-blue) !important;
 }
 
-.sidebar a:hover,
+.page__footer a:hover,
 .site-footer a:hover {
-  color: var(--dracula-purple) !important;
+  color: var(--qt-teal) !important;
 }
 
-/* Code blocks */
+/* ── Code ─────────────────────────────────────────────────────────────────── */
 pre,
-code,
 .highlight {
-  background-color: #44475a !important;
-  color: var(--dracula-foreground) !important;
+  background-color: var(--qt-code-bg) !important;
+  border: 1px solid var(--qt-border) !important;
+  border-radius: 6px !important;
+  box-shadow: var(--qt-shadow) !important;
 }
 
-/* Buttons and inputs */
-button,
-.btn,
-input[type="submit"],
-input,
-textarea {
-  background-color: var(--dracula-current-line) !important;
-  color: var(--dracula-foreground) !important;
-  border: 1px solid var(--dracula-comment) !important;
+code {
+  background-color: var(--qt-card) !important;
+  color: var(--qt-teal) !important;
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
 }
 
-button:hover,
-.btn:hover,
-input[type="submit"]:hover {
-  background-color: #6272a4 !important;
+pre code {
+  background-color: transparent !important;
+  color: var(--qt-text) !important;
+  padding: 0;
 }
 
-/* Tables */
+/* Syntax highlighting tokens — Bloomberg/terminal feel */
+.highlight .k,  .highlight .kd, .highlight .kn { color: #c792ea !important; } /* keyword   */
+.highlight .s,  .highlight .s1, .highlight .s2  { color: #c3e88d !important; } /* string    */
+.highlight .mi, .highlight .mf, .highlight .m   { color: var(--qt-teal) !important; } /* number */
+.highlight .c,  .highlight .c1, .highlight .cm  { color: var(--qt-text-muted) !important; font-style: italic; } /* comment */
+.highlight .n,  .highlight .nn                  { color: var(--qt-text) !important; }  /* name */
+.highlight .nf, .highlight .nb                  { color: var(--qt-blue) !important; }  /* function */
+.highlight .na, .highlight .nx                  { color: var(--qt-gold) !important; }  /* attr */
+.highlight .o,  .highlight .p                   { color: var(--qt-orange) !important; }/* op/punct */
+
+/* ── Tables ───────────────────────────────────────────────────────────────── */
 table {
-  background-color: var(--dracula-current-line) !important;
-  color: var(--dracula-foreground) !important;
+  background-color: var(--qt-card) !important;
+  color: var(--qt-text) !important;
+  border-collapse: collapse;
+  border: 1px solid var(--qt-border) !important;
 }
 
 thead {
-  background-color: #44475a !important;
+  background-color: var(--qt-surface) !important;
+  border-bottom: 2px solid var(--qt-teal) !important;
+}
+
+thead th {
+  color: var(--qt-teal) !important;
+  font-size: 0.78em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #383a59 !important;
+  background-color: rgba(26, 34, 52, 0.6) !important;
 }
 
-/* Blockquotes */
+tbody tr:hover {
+  background-color: rgba(0, 212, 170, 0.05) !important;
+}
+
+td, th {
+  border: 1px solid var(--qt-border) !important;
+}
+
+/* ── Blockquotes ──────────────────────────────────────────────────────────── */
 blockquote {
-  background-color: #383a59 !important;
-  border-left: 4px solid var(--dracula-purple) !important;
-  color: var(--dracula-comment) !important;
+  background-color: rgba(26, 34, 52, 0.8) !important;
+  border-left: 3px solid var(--qt-teal) !important;
+  color: var(--qt-text-muted) !important;
+  border-radius: 0 4px 4px 0;
 }
 
-/* HR */
+/* ── Horizontal rule ──────────────────────────────────────────────────────── */
 hr {
-  border-color: var(--dracula-comment) !important;
+  border-color: var(--qt-border) !important;
 }
 
-/* Misc hero overlays if needed */
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  background-color: var(--qt-card) !important;
+  color: var(--qt-text) !important;
+  border: 1px solid var(--qt-border) !important;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: var(--qt-teal) !important;
+  color: var(--qt-bg) !important;
+  border-color: var(--qt-teal) !important;
+}
+
+/* ── Form inputs ──────────────────────────────────────────────────────────── */
+input,
+textarea,
+select {
+  background-color: var(--qt-card) !important;
+  color: var(--qt-text) !important;
+  border: 1px solid var(--qt-border) !important;
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--qt-teal) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.2) !important;
+}
+
+/* ── Hero / page overlay ──────────────────────────────────────────────────── */
 .page__hero--overlay {
-  background-color: rgba(40, 42, 54, 0.85) !important;
-  color: var(--dracula-foreground) !important;
+  background-color: rgba(10, 14, 26, 0.9) !important;
+  color: var(--qt-text) !important;
 }
 
-/* Images slightly dim to blend with dark bg */
+/* ── Images ───────────────────────────────────────────────────────────────── */
 img {
-  opacity: 0.97;
+  opacity: 0.95;
+}
+
+.author__avatar img {
+  border: 2px solid var(--qt-teal) !important;
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(0, 212, 170, 0.25);
+}
+
+/* ── Archive / collection list ────────────────────────────────────────────── */
+.list__item .archive__item-title a {
+  color: var(--qt-blue) !important;
+}
+
+.list__item .archive__item-title a:hover {
+  color: var(--qt-teal) !important;
+}
+
+.list__item .archive__item-excerpt {
+  color: var(--qt-text-muted) !important;
+}
+
+/* ── Pagination ───────────────────────────────────────────────────────────── */
+.pagination a {
+  color: var(--qt-teal) !important;
+  border: 1px solid var(--qt-border) !important;
+  background-color: var(--qt-card) !important;
+}
+
+.pagination a:hover {
+  background-color: var(--qt-teal) !important;
+  color: var(--qt-bg) !important;
+}
+
+/* ── Tags and categories ──────────────────────────────────────────────────── */
+.page__taxonomy-item a {
+  background-color: var(--qt-card) !important;
+  color: var(--qt-teal) !important;
+  border: 1px solid var(--qt-border) !important;
+  border-radius: 3px;
+  font-size: 0.75em;
+  padding: 0.1em 0.5em;
+}
+
+.page__taxonomy-item a:hover {
+  background-color: var(--qt-teal) !important;
+  color: var(--qt-bg) !important;
+}
+
+/* ── Search ───────────────────────────────────────────────────────────────── */
+.search-content {
+  background-color: var(--qt-bg) !important;
+}
+
+#search-input {
+  background-color: var(--qt-card) !important;
+  color: var(--qt-text) !important;
+  border: 1px solid var(--qt-border) !important;
+}
+
+/* ── GitHub project cards ─────────────────────────────────────────────────── */
+.project-card {
+  background-color: var(--qt-card);
+  border: 1px solid var(--qt-border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  border-color: var(--qt-teal);
+  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.12);
+}
+
+.project-card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.4rem;
+}
+
+.project-card h3 a {
+  color: var(--qt-teal) !important;
+  font-size: 1.05em;
+  font-weight: 700;
+}
+
+.project-card h3 a:hover {
+  color: var(--qt-gold) !important;
+  text-decoration: none !important;
+}
+
+.project-card p {
+  color: var(--qt-text-muted) !important;
+  font-size: 0.88em;
+  margin-bottom: 0.75rem;
+  line-height: 1.55;
+}
+
+.project-card .project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.75em;
+}
+
+.project-tag {
+  background-color: rgba(0, 212, 170, 0.1);
+  color: var(--qt-teal);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+  border-radius: 12px;
+  padding: 0.15em 0.65em;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.project-lang {
+  background-color: rgba(79, 195, 247, 0.1);
+  color: var(--qt-blue);
+  border: 1px solid rgba(79, 195, 247, 0.3);
+  border-radius: 12px;
+  padding: 0.15em 0.65em;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.project-lang::before {
+  content: "● ";
+  font-size: 0.9em;
+}
+
+/* ── Skills / tech stack chips ────────────────────────────────────────────── */
+.skill-chip {
+  display: inline-block;
+  background-color: var(--qt-card);
+  color: var(--qt-text-muted);
+  border: 1px solid var(--qt-border);
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  font-size: 0.78em;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  margin: 0.15em;
+}
+
+/* ── Quant finance stat badges (positive / negative) ──────────────────────── */
+.badge-positive {
+  color: var(--qt-green);
+  font-weight: 600;
+}
+
+.badge-negative {
+  color: var(--qt-red);
+  font-weight: 600;
+}
+
+/* ── Section divider with label ───────────────────────────────────────────── */
+.section-label {
+  color: var(--qt-teal);
+  font-size: 0.7em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid var(--qt-border);
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+/* ── Scrollbar (Webkit) ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--qt-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--qt-border-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--qt-teal);
+}
+
+/* ── Selection highlight ──────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 212, 170, 0.25);
+  color: var(--qt-text);
 }
