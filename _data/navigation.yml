@@ -1,0 +1,13 @@
+# main links links
+main:
+  - title: "Projects"
+    url: /projects/
+
+  - title: "Notes"
+    url: /notes/
+
+  - title: "Skills"
+    url: /skills/
+
+  - title: "Resume"
+    url: /files/AN_Resume_23.pdf
