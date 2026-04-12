@@ -1,37 +1,38 @@
 /* ==========================================================================
-   QuantTerminal Dark Theme
-   Inspired by Bloomberg Terminal, quant trading platforms, and dark IDEs.
+   Dark Finance Theme
+   Inspired by Bloomberg Terminal, Reuters Eikon, and professional fintech
+   dashboards. Deep navy base, amber/gold accents, clean data typography.
    ========================================================================== */
 
 /* ── Color tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --qt-bg:          #0a0e1a;   /* deep space navy — main background          */
-  --qt-surface:     #0f1624;   /* panel / sidebar background                 */
-  --qt-card:        #1a2234;   /* cards, code blocks, table rows             */
-  --qt-border:      #1e2d40;   /* dividers, input borders                    */
-  --qt-border-soft: #263350;   /* softer borders for nested elements         */
+  --df-bg:          #0d1117;   /* github-dark navy — main background           */
+  --df-surface:     #161b22;   /* panel / sidebar / nav background             */
+  --df-card:        #1c2128;   /* cards, table rows, inputs                    */
+  --df-border:      #21262d;   /* primary borders, dividers                    */
+  --df-border-soft: #30363d;   /* softer borders for nested elements           */
 
-  --qt-text:        #cdd6f4;   /* primary text — soft off-white              */
-  --qt-text-muted:  #6c7a8f;   /* secondary / meta text                      */
-  --qt-text-dim:    #4a5568;   /* very dim — disabled, placeholder           */
+  --df-text:        #e6edf3;   /* primary text — crisp off-white               */
+  --df-text-muted:  #8b949e;   /* secondary / meta text                        */
+  --df-text-dim:    #484f58;   /* very dim — disabled, placeholder             */
 
-  --qt-teal:        #00d4aa;   /* Bloomberg green — primary accent           */
-  --qt-teal-dark:   #009d7f;   /* hover / pressed teal                       */
-  --qt-blue:        #4fc3f7;   /* links, info                                */
-  --qt-blue-dark:   #0288d1;   /* link hover                                 */
-  --qt-gold:        #ffd54f;   /* headings highlight, h2/h3 accents          */
-  --qt-red:         #ff5370;   /* negative values, errors                    */
-  --qt-orange:      #ffb86c;   /* warnings, secondary highlight              */
-  --qt-green:       #3fb950;   /* positive values, success                   */
+  --df-gold:        #e3b341;   /* Bloomberg amber — primary accent             */
+  --df-gold-dark:   #b08800;   /* hover / pressed gold                         */
+  --df-blue:        #58a6ff;   /* links, info highlights                       */
+  --df-blue-dark:   #1f6feb;   /* link hover                                   */
+  --df-teal:        #39c5cf;   /* secondary accent — subtle data color         */
+  --df-green:       #3fb950;   /* positive values, success                     */
+  --df-red:         #f85149;   /* negative values, errors                      */
+  --df-orange:      #d29922;   /* warnings, secondary warm highlight           */
 
-  --qt-code-bg:     #111827;   /* syntax highlight background                */
-  --qt-shadow:      0 2px 12px rgba(0, 212, 170, 0.08);
+  --df-code-bg:     #0d1117;
+  --df-shadow:      0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Base ─────────────────────────────────────────────────────────────────── */
 html, body {
-  background-color: var(--qt-bg) !important;
-  color: var(--qt-text) !important;
+  background-color: var(--df-bg) !important;
+  color: var(--df-text) !important;
 }
 
 /* ── Layout containers ────────────────────────────────────────────────────── */
@@ -40,57 +41,56 @@ html, body {
 .page__inner-wrap,
 #main,
 .archive {
-  background-color: var(--qt-bg) !important;
-  color: var(--qt-text) !important;
+  background-color: var(--df-bg) !important;
+  color: var(--df-text) !important;
 }
 
 /* ── Typography ───────────────────────────────────────────────────────────── */
 h1 {
-  color: var(--qt-teal) !important;
-  letter-spacing: -0.02em;
+  color: var(--df-gold) !important;
 }
 
 h2 {
-  color: var(--qt-gold) !important;
-  border-bottom: 1px solid var(--qt-border) !important;
+  color: var(--df-gold) !important;
+  border-bottom: 1px solid var(--df-border) !important;
   padding-bottom: 0.3em;
 }
 
 h3, h4 {
-  color: var(--qt-text) !important;
+  color: var(--df-text) !important;
 }
 
 h5, h6 {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
 }
 
 p, li, td, th {
-  color: var(--qt-text) !important;
+  color: var(--df-text) !important;
 }
 
 strong, b {
-  color: var(--qt-gold) !important;
+  color: var(--df-text) !important;
 }
 
 em, i {
-  color: var(--qt-orange) !important;
+  color: var(--df-text-muted) !important;
 }
 
 /* ── Links ────────────────────────────────────────────────────────────────── */
 a {
-  color: var(--qt-blue) !important;
+  color: var(--df-blue) !important;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 a:hover,
 a:focus {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
   text-decoration: underline;
 }
 
 a:visited {
-  color: var(--qt-blue) !important;
+  color: var(--df-blue) !important;
 }
 
 /* ── Masthead / Navigation ────────────────────────────────────────────────── */
@@ -98,18 +98,18 @@ a:visited {
 .site-header,
 .site-nav,
 .greedy-nav {
-  background-color: var(--qt-surface) !important;
-  border-bottom: 1px solid var(--qt-border) !important;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+  background-color: var(--df-surface) !important;
+  border-bottom: 1px solid var(--df-border) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
 }
 
 .masthead__inner-wrap {
-  background-color: var(--qt-surface) !important;
+  background-color: var(--df-surface) !important;
 }
 
 .greedy-nav a,
 .masthead__menu-item a {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.78em;
@@ -118,112 +118,113 @@ a:visited {
 
 .greedy-nav a:hover,
 .masthead__menu-item a:hover {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
   text-decoration: none !important;
 }
 
 /* Site title in nav */
 .masthead__menu-item--lg a {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
   font-weight: 700 !important;
   font-size: 1em !important;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   text-transform: none !important;
 }
 
 .masthead__menu-item--lg a:hover {
-  color: var(--qt-gold) !important;
+  color: var(--df-text) !important;
 }
 
 /* Hamburger icon */
 .greedy-nav button {
   background-color: transparent !important;
-  border: 1px solid var(--qt-border) !important;
+  border: 1px solid var(--df-border) !important;
 }
 
 .navicon,
 .navicon::before,
 .navicon::after {
-  background: var(--qt-teal) !important;
+  background: var(--df-gold) !important;
 }
 
 /* Hidden links dropdown */
 .hidden-links {
-  background-color: var(--qt-surface) !important;
-  border: 1px solid var(--qt-border) !important;
-  box-shadow: var(--qt-shadow) !important;
+  background-color: var(--df-surface) !important;
+  border: 1px solid var(--df-border) !important;
+  box-shadow: var(--df-shadow) !important;
 }
 
 .hidden-links a {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
 }
 
 .hidden-links a:hover {
-  color: var(--qt-teal) !important;
-  background-color: var(--qt-card) !important;
+  color: var(--df-gold) !important;
+  background-color: var(--df-card) !important;
 }
 
 /* ── Sidebar ──────────────────────────────────────────────────────────────── */
 .sidebar,
 .author__content,
 .author__urls-wrapper {
-  background-color: var(--qt-surface) !important;
-  color: var(--qt-text) !important;
+  background-color: var(--df-surface) !important;
+  color: var(--df-text) !important;
 }
 
 .author__name {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
   font-weight: 700;
 }
 
 .author__bio {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
   font-size: 0.85em;
   line-height: 1.5;
 }
 
 .author__urls {
-  background-color: var(--qt-surface) !important;
-  border: 1px solid var(--qt-border) !important;
+  background-color: var(--df-surface) !important;
+  border: 1px solid var(--df-border) !important;
 }
 
 .author__urls li a {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
 }
 
 .author__urls li a:hover {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
 }
 
 .author__urls li i,
 .author__urls li .fa,
 .author__urls li .fab,
 .author__urls li .fas {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
 }
 
 /* Follow button */
 .btn--inverse {
   background-color: transparent !important;
-  border: 1px solid var(--qt-teal) !important;
-  color: var(--qt-teal) !important;
+  border: 1px solid var(--df-border-soft) !important;
+  color: var(--df-text-muted) !important;
   font-size: 0.7em !important;
   letter-spacing: 0.05em;
 }
 
 .btn--inverse:hover {
-  background-color: var(--qt-teal) !important;
-  color: var(--qt-bg) !important;
+  background-color: var(--df-card) !important;
+  border-color: var(--df-gold) !important;
+  color: var(--df-gold) !important;
 }
 
 /* ── Page title ───────────────────────────────────────────────────────────── */
 .page__title {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
 }
 
 .page__meta,
 .page__date {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
   font-size: 0.8em;
 }
 
@@ -231,33 +232,33 @@ a:visited {
 .page__footer,
 .site-footer,
 footer {
-  background-color: var(--qt-surface) !important;
-  border-top: 1px solid var(--qt-border) !important;
-  color: var(--qt-text-muted) !important;
+  background-color: var(--df-surface) !important;
+  border-top: 1px solid var(--df-border) !important;
+  color: var(--df-text-muted) !important;
 }
 
 .page__footer a,
 .site-footer a {
-  color: var(--qt-blue) !important;
+  color: var(--df-blue) !important;
 }
 
 .page__footer a:hover,
 .site-footer a:hover {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
 }
 
 /* ── Code ─────────────────────────────────────────────────────────────────── */
 pre,
 .highlight {
-  background-color: var(--qt-code-bg) !important;
-  border: 1px solid var(--qt-border) !important;
+  background-color: var(--df-card) !important;
+  border: 1px solid var(--df-border) !important;
   border-radius: 6px !important;
-  box-shadow: var(--qt-shadow) !important;
+  box-shadow: var(--df-shadow) !important;
 }
 
 code {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-teal) !important;
+  background-color: var(--df-card) !important;
+  color: var(--df-teal) !important;
   border-radius: 3px;
   padding: 0.1em 0.35em;
   font-size: 0.88em;
@@ -265,100 +266,90 @@ code {
 
 pre code {
   background-color: transparent !important;
-  color: var(--qt-text) !important;
+  color: var(--df-text) !important;
   padding: 0;
 }
 
-/* Syntax highlighting tokens — Bloomberg/terminal feel */
-.highlight .k,  .highlight .kd, .highlight .kn { color: #c792ea !important; } /* keyword   */
-.highlight .s,  .highlight .s1, .highlight .s2  { color: #c3e88d !important; } /* string    */
-.highlight .mi, .highlight .mf, .highlight .m   { color: var(--qt-teal) !important; } /* number */
-.highlight .c,  .highlight .c1, .highlight .cm  { color: var(--qt-text-muted) !important; font-style: italic; } /* comment */
-.highlight .n,  .highlight .nn                  { color: var(--qt-text) !important; }  /* name */
-.highlight .nf, .highlight .nb                  { color: var(--qt-blue) !important; }  /* function */
-.highlight .na, .highlight .nx                  { color: var(--qt-gold) !important; }  /* attr */
-.highlight .o,  .highlight .p                   { color: var(--qt-orange) !important; }/* op/punct */
-
 /* ── Tables ───────────────────────────────────────────────────────────────── */
 table {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-text) !important;
+  background-color: var(--df-card) !important;
+  color: var(--df-text) !important;
   border-collapse: collapse;
-  border: 1px solid var(--qt-border) !important;
+  border: 1px solid var(--df-border) !important;
 }
 
 thead {
-  background-color: var(--qt-surface) !important;
-  border-bottom: 2px solid var(--qt-teal) !important;
+  background-color: var(--df-surface) !important;
+  border-bottom: 2px solid var(--df-gold) !important;
 }
 
 thead th {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
   font-size: 0.78em;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 tbody tr:nth-child(even) {
-  background-color: rgba(26, 34, 52, 0.6) !important;
+  background-color: rgba(28, 33, 40, 0.7) !important;
 }
 
 tbody tr:hover {
-  background-color: rgba(0, 212, 170, 0.05) !important;
+  background-color: rgba(227, 179, 65, 0.05) !important;
 }
 
 td, th {
-  border: 1px solid var(--qt-border) !important;
+  border: 1px solid var(--df-border) !important;
 }
 
 /* ── Blockquotes ──────────────────────────────────────────────────────────── */
 blockquote {
-  background-color: rgba(26, 34, 52, 0.8) !important;
-  border-left: 3px solid var(--qt-teal) !important;
-  color: var(--qt-text-muted) !important;
+  background-color: rgba(28, 33, 40, 0.8) !important;
+  border-left: 3px solid var(--df-gold) !important;
+  color: var(--df-text-muted) !important;
   border-radius: 0 4px 4px 0;
 }
 
 /* ── Horizontal rule ──────────────────────────────────────────────────────── */
 hr {
-  border-color: var(--qt-border) !important;
+  border-color: var(--df-border) !important;
 }
 
 /* ── Buttons ──────────────────────────────────────────────────────────────── */
 .btn {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-text) !important;
-  border: 1px solid var(--qt-border) !important;
+  background-color: var(--df-card) !important;
+  color: var(--df-text) !important;
+  border: 1px solid var(--df-border) !important;
   border-radius: 4px;
 }
 
 .btn:hover {
-  background-color: var(--qt-teal) !important;
-  color: var(--qt-bg) !important;
-  border-color: var(--qt-teal) !important;
+  background-color: var(--df-card) !important;
+  border-color: var(--df-gold) !important;
+  color: var(--df-gold) !important;
 }
 
 /* ── Form inputs ──────────────────────────────────────────────────────────── */
 input,
 textarea,
 select {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-text) !important;
-  border: 1px solid var(--qt-border) !important;
+  background-color: var(--df-card) !important;
+  color: var(--df-text) !important;
+  border: 1px solid var(--df-border) !important;
   border-radius: 4px;
 }
 
 input:focus,
 textarea:focus {
-  border-color: var(--qt-teal) !important;
+  border-color: var(--df-gold) !important;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.2) !important;
+  box-shadow: 0 0 0 2px rgba(227, 179, 65, 0.2) !important;
 }
 
 /* ── Hero / page overlay ──────────────────────────────────────────────────── */
 .page__hero--overlay {
-  background-color: rgba(10, 14, 26, 0.9) !important;
-  color: var(--qt-text) !important;
+  background-color: rgba(13, 17, 23, 0.9) !important;
+  color: var(--df-text) !important;
 }
 
 /* ── Images ───────────────────────────────────────────────────────────────── */
@@ -367,168 +358,60 @@ img {
 }
 
 .author__avatar img {
-  border: 2px solid var(--qt-teal) !important;
+  border: 2px solid var(--df-gold) !important;
   border-radius: 50%;
-  box-shadow: 0 0 16px rgba(0, 212, 170, 0.25);
+  box-shadow: 0 0 14px rgba(227, 179, 65, 0.2);
 }
 
 /* ── Archive / collection list ────────────────────────────────────────────── */
 .list__item .archive__item-title a {
-  color: var(--qt-blue) !important;
+  color: var(--df-blue) !important;
 }
 
 .list__item .archive__item-title a:hover {
-  color: var(--qt-teal) !important;
+  color: var(--df-gold) !important;
 }
 
 .list__item .archive__item-excerpt {
-  color: var(--qt-text-muted) !important;
+  color: var(--df-text-muted) !important;
 }
 
 /* ── Pagination ───────────────────────────────────────────────────────────── */
 .pagination a {
-  color: var(--qt-teal) !important;
-  border: 1px solid var(--qt-border) !important;
-  background-color: var(--qt-card) !important;
+  color: var(--df-gold) !important;
+  border: 1px solid var(--df-border) !important;
+  background-color: var(--df-card) !important;
 }
 
 .pagination a:hover {
-  background-color: var(--qt-teal) !important;
-  color: var(--qt-bg) !important;
+  border-color: var(--df-gold) !important;
+  background-color: rgba(227, 179, 65, 0.08) !important;
 }
 
 /* ── Tags and categories ──────────────────────────────────────────────────── */
 .page__taxonomy-item a {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-teal) !important;
-  border: 1px solid var(--qt-border) !important;
+  background-color: var(--df-card) !important;
+  color: var(--df-text-muted) !important;
+  border: 1px solid var(--df-border) !important;
   border-radius: 3px;
   font-size: 0.75em;
   padding: 0.1em 0.5em;
 }
 
 .page__taxonomy-item a:hover {
-  background-color: var(--qt-teal) !important;
-  color: var(--qt-bg) !important;
+  border-color: var(--df-gold) !important;
+  color: var(--df-gold) !important;
 }
 
 /* ── Search ───────────────────────────────────────────────────────────────── */
 .search-content {
-  background-color: var(--qt-bg) !important;
+  background-color: var(--df-bg) !important;
 }
 
 #search-input {
-  background-color: var(--qt-card) !important;
-  color: var(--qt-text) !important;
-  border: 1px solid var(--qt-border) !important;
-}
-
-/* ── GitHub project cards ─────────────────────────────────────────────────── */
-.project-card {
-  background-color: var(--qt-card);
-  border: 1px solid var(--qt-border);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.25rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.project-card:hover {
-  border-color: var(--qt-teal);
-  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.12);
-}
-
-.project-card h3 {
-  margin-top: 0 !important;
-  margin-bottom: 0.4rem;
-}
-
-.project-card h3 a {
-  color: var(--qt-teal) !important;
-  font-size: 1.05em;
-  font-weight: 700;
-}
-
-.project-card h3 a:hover {
-  color: var(--qt-gold) !important;
-  text-decoration: none !important;
-}
-
-.project-card p {
-  color: var(--qt-text-muted) !important;
-  font-size: 0.88em;
-  margin-bottom: 0.75rem;
-  line-height: 1.55;
-}
-
-.project-card .project-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  font-size: 0.75em;
-}
-
-.project-tag {
-  background-color: rgba(0, 212, 170, 0.1);
-  color: var(--qt-teal);
-  border: 1px solid rgba(0, 212, 170, 0.3);
-  border-radius: 12px;
-  padding: 0.15em 0.65em;
-  font-size: 0.85em;
-  font-weight: 500;
-}
-
-.project-lang {
-  background-color: rgba(79, 195, 247, 0.1);
-  color: var(--qt-blue);
-  border: 1px solid rgba(79, 195, 247, 0.3);
-  border-radius: 12px;
-  padding: 0.15em 0.65em;
-  font-size: 0.85em;
-  font-weight: 500;
-}
-
-.project-lang::before {
-  content: "● ";
-  font-size: 0.9em;
-}
-
-/* ── Skills / tech stack chips ────────────────────────────────────────────── */
-.skill-chip {
-  display: inline-block;
-  background-color: var(--qt-card);
-  color: var(--qt-text-muted);
-  border: 1px solid var(--qt-border);
-  border-radius: 4px;
-  padding: 0.2em 0.6em;
-  font-size: 0.78em;
-  font-family: Monaco, Consolas, "Lucida Console", monospace;
-  margin: 0.15em;
-}
-
-/* ── Quant finance stat badges (positive / negative) ──────────────────────── */
-.badge-positive {
-  color: var(--qt-green);
-  font-weight: 600;
-}
-
-.badge-negative {
-  color: var(--qt-red);
-  font-weight: 600;
-}
-
-/* ── Section divider with label ───────────────────────────────────────────── */
-.section-label {
-  color: var(--qt-teal);
-  font-size: 0.7em;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-bottom: 1px solid var(--qt-border);
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
+  background-color: var(--df-card) !important;
+  color: var(--df-text) !important;
+  border: 1px solid var(--df-border) !important;
 }
 
 /* ── Scrollbar (Webkit) ───────────────────────────────────────────────────── */
@@ -538,20 +421,20 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--qt-bg);
+  background: var(--df-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--qt-border-soft);
+  background: var(--df-border-soft);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--qt-teal);
+  background: var(--df-gold);
 }
 
 /* ── Selection highlight ──────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(0, 212, 170, 0.25);
-  color: var(--qt-text);
+  background: rgba(227, 179, 65, 0.2);
+  color: var(--df-text);
 }
