@@ -549,3 +549,57 @@ img {
   font-family: Monaco, Consolas, "Lucida Console", monospace;
   margin: 0.15em;
 }
+
+/* ── Notes list ───────────────────────────────────────────────────────────── */
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.note-entry {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--df-border);
+}
+
+.note-entry:last-child {
+  border-bottom: none;
+}
+
+.note-meta {
+  min-width: 52px;
+  color: var(--df-text-dim);
+  font-size: 0.78em;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  padding-top: 0.2em;
+  white-space: nowrap;
+}
+
+.note-body {
+  flex: 1;
+}
+
+.note-title {
+  font-size: 0.97em;
+  font-weight: 600;
+  color: var(--df-blue) !important;
+  text-decoration: none !important;
+}
+
+.note-title:hover {
+  color: var(--df-gold) !important;
+}
+
+.note-tags {
+  margin-top: 0.3rem;
+}
+
+.note-excerpt {
+  color: var(--df-text-muted) !important;
+  font-size: 0.83em;
+  margin: 0.3rem 0 0 !important;
+  line-height: 1.5;
+}
