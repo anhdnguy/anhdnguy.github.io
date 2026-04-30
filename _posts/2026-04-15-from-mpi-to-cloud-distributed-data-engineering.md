@@ -7,8 +7,6 @@ tags:
   - cloud
 categories:
   - notes
-toc: true
-toc_sticky: true
 ---
 
 I spent a semester learning MPI (Message Passing Interface) in a high-performance computing course. Two-dimensional domain decomposition, collective communication patterns, process topology optimization. It felt academic at the time—who uses Fortran on supercomputers anymore?

@@ -7,8 +7,6 @@ tags:
   - python
 categories:
   - notes
-toc: true
-toc_sticky: true
 ---
 
 Building an ETL pipeline sounds simple in theory: extract data from an API, transform it, load it into a data lake. In practice, building one that *never loses data and never duplicates it* at production scale is a different beast entirely. This post covers what I learned building the Zoom ETL pipeline—specifically, why orchestration is a correctness problem, not just a scheduling problem.
