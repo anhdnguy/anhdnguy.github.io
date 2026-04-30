@@ -162,6 +162,85 @@
   border-bottom: 1px solid $border-color;
 }
 
+/*
+   Projects
+   ========================================================================== */
+
+.project-card {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(#000, 0.1);
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: $type-size-5;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 1em;
+    font-size: $type-size-6;
+  }
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.project-lang,
+.project-tag,
+.project-status-planned {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  font-size: 0.85em;
+  font-weight: 600;
+  border-radius: 0.25em;
+  background-color: mix($background-color, $text-color, 90%);
+  color: $text-color;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.project-status-planned {
+  background-color: #fffacd;
+  color: #856404;
+}
+
+.section-label {
+  font-size: $type-size-4;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+}
+
+
+/*
+   Features
+   ========================================================================== */
+
+.feature__wrapper {
+  @include clearfix();
+  margin-bottom: 2em;
+  border-bottom: 1px solid $border-color;
+}
+
 .feature__item {
   margin-bottom: 2em;
   font-size: 1.25rem;
